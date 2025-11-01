@@ -1,0 +1,11 @@
+# ignore local data and cruft during build
+src/data/
+*.csv
+*.tsv
+*.zip
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+.DS_Store
+.vscode/
+.idea/
