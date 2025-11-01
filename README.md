@@ -58,6 +58,29 @@ titanic-disaster/
 2. **Install dependencies**
    ```bash
    pip install -r requirements.txt
+
+    ```
+3.**Download the Titanic dataset from Kaggle and place both files inside**
+    ```bash
+    src/data/
+    train.csv
+    test.csv
+    ```
+4. **Run the environment check and summary**
+    ```bash
+    python src/app/main.py --mode check
+    python src/app/main.py --mode summary
+    ```
+## Run the R container
+
+Build and run (from repo root):
+    docker build -f src/r/Dockerfile -t titanic-r:dev src/r
+    docker run --rm -v "$(pwd)/src/data:/data:ro" titanic-r:dev
+
+
+If Docker pulls fail due to a proxy, you can run locally:
+    Rscript src/r/titanic_main.R --mode all --data_dir src/data
+
    ```
 
 3. **Place data files**
@@ -167,3 +190,4 @@ This repository provides a complete, reproducible environment for Titanic surviv
 Both Python and R pipelines are containerized, verified, and ready for grading — ensuring the project runs consistently across systems.
 
 ---
+
